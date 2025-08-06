@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disease Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        .container {
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        h2 {
+            color: #333;
+        }
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            cursor: pointer;
+            border: none;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Disease Prediction</h2>
+        <label for="symptoms">Enter Symptoms (comma-separated):</label>
+        <input type="text" id="symptoms" placeholder="e.g., fever, cough, fatigue">
+        <button onclick="predictDisease()">Predict</button>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        function predictDisease() {
+            const symptoms = document.getElementById("symptoms").value.split(",").map(s => s.trim());
+    
+            fetch("http://127.0.0.1:5000/predict", {
+                method: "POST",
+                mode: "cors",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ symptoms: symptoms })
+            })
+
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    document.getElementById("result").innerText = "Error: " + data.error;
+                } else {
+                    let resultHTML = "<h3>Predictions:</h3><ul>";
+                    data.predictions.forEach(prediction => {
+                        resultHTML += `<li><strong>${prediction.disease}</strong>: ${prediction.confidence}</li>`;
+                    });
+                    resultHTML += "</ul>";
+                    document.getElementById("result").innerHTML = resultHTML;
+                }
+            })
+            .catch(error => {
+                document.getElementById("result").innerText = "Error: Could not connect to backend.";
+                console.error("Error:", error);
+            });
+        }
+    </script>
+    
+    
+</body>
+</html>

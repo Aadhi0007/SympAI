@@ -1,0 +1,18 @@
+2025-03-13 14:50:34,211 - INFO - Dataset loaded successfully.
+2025-03-13 17:21:40,168 - INFO - Dataset loaded successfully.
+2025-03-13 17:34:43,308 - INFO - Dataset loaded successfully.
+2025-03-13 17:50:29,685 - INFO - Symptom match: fever
+2025-03-13 17:50:29,687 - INFO - Symptom match: feeling cold
+2025-03-13 17:50:29,687 - INFO - Symptom match: feeling hot and cold
+2025-03-13 17:54:20,634 - INFO - Dataset loaded successfully.
+2025-03-13 20:41:45,551 - INFO - Dataset loaded successfully.
+2025-03-14 10:27:50,385 - INFO - Dataset loaded successfully.
+2025-03-14 10:28:29,666 - INFO - Dataset loaded successfully.
+2025-03-14 10:32:24,113 - INFO - Dataset loaded successfully.
+2025-03-14 10:57:21,445 - INFO - Symptom correction: fattigue -> fatigue
+2025-03-14 10:57:21,447 - INFO - Symptom match: chills
+2025-03-14 10:57:21,447 - INFO - Symptom match: vomiting
+2025-03-14 10:57:21,447 - INFO - Symptom match: vomiting blood
+2025-03-14 10:57:21,447 - INFO - Symptom match: fatigue
+2025-03-14 12:04:04,177 - INFO - Dataset loaded successfully.
+2025-03-15 10:16:49,514 - INFO - Dataset loaded successfully.
